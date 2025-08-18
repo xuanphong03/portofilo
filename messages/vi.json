@@ -1,0 +1,25 @@
+{
+  "HomePage": {
+    "title": "Hello world!",
+    "about": "Go to the about page"
+  },
+  "Header": {
+    "home": "Trang chủ",
+    "about": "Giới thiệu",
+    "skills": "Kỹ năng",
+    "projects": "Dự án",
+    "contact": "Liên hệ"
+  },
+  "ContactForm": {
+    "emptyErrorFullnameMessage": "Vui lòng nhập họ và tên",
+    "emptyErrorEmailMessage": "Vui lòng nhập email",
+    "emptyErrorPhoneMessage": "Vui lòng nhập số điện thoại",
+    "emptyErrorMessageMessage": "Vui lòng nhập tin nhắn",
+    "invalidErrorEmailMessage": "Email không hợp lệ",
+    "invalidErrorPhoneMessage": "Số điện thoại không hợp lệ",
+    "fieldFullnamePlaceholder": "Tên của bạn*",
+    "fieldEmailPlaceholder": "Email*",
+    "fieldPhonePlaceholder": "Số điện thoại*",
+    "fieldMessagePlaceholder": "Tin nhắn*"
+  }
+}

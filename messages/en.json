@@ -1,0 +1,25 @@
+{
+  "HomePage": {
+    "title": "Hello world!",
+    "about": "Go to the about page"
+  },
+  "Header": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "ContactForm": {
+    "emptyErrorFullnameMessage": "Please enter your fullname",
+    "emptyErrorEmailMessage": "Please enter your email",
+    "emptyErrorPhoneMessage": "Please enter your phone number",
+    "emptyErrorMessageMessage": "Please enter your message",
+    "invalidErrorEmailMessage": "Email is invalid",
+    "invalidErrorPhoneMessage": "Phone number is invalid",
+    "fieldFullnamePlaceholder": "Fullname*",
+    "fieldEmailPlaceholder": "Email*",
+    "fieldPhonePlaceholder": "Phone number*",
+    "fieldMessagePlaceholder": "Message*"
+  }
+}
