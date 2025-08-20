@@ -30,5 +30,16 @@
     "labelEmail": "Email",
     "labelPhone": "Phone number",
     "labelSocial": "Socials"
+  },
+  "Intro": {
+    "desc": "I am Nguyen Xuan Phong, a senior student at Thang Long University and will graduate in February 2026. With a passion for user interface programming, my short-term goal is to become a Frontend Developer, focusing on building modern, fast and optimal digital experiences."
+  },
+  "About": {
+    "title": "About me",
+    "subtitle": "Curious about me? Here you have it",
+    "desc": "I have 6 months of experience working with WordPress, and have a solid foundation in HTML, CSS and JavaScript. Currently, I focus on developing user interfaces with React, Next.js and Tailwind CSS technologies, aiming to create products that are fast, smooth, accessible, user-friendly, while optimizing performance and ensuring aesthetics. In the future, my goal is to become a Fullstack Developer, capable of building and developing comprehensive products from frontend to backend."
+  },
+  "Skill": {
+    "subtitle": "The skills, tools and technologies I am really good at"
   }
 }

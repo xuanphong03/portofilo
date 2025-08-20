@@ -30,5 +30,16 @@
     "labelEmail": "Email",
     "labelPhone": "Số điện thoại liên hệ",
     "labelSocial": "Mạng xã hội"
+  },
+  "Intro": {
+    "desc": "Tôi là Nguyễn Xuân Phong, sinh viên năm cuối tại Đại học Thăng Long và sẽ tốt nghiệp vào tháng 02/2026. Với niềm đam mê lập trình giao diện người dùng, mục tiêu ngắn hạn của tôi là trở thành Frontend Developer, tập trung vào việc xây dựng những trải nghiệm số hiện đại, nhanh chóng và tối ưu."
+  },
+  "About": {
+    "title": "Giới thiệu",
+    "subtitle": "Bạn có tò mò về tôi không?",
+    "desc": "Tôi có 6 tháng kinh nghiệm làm việc với WordPress, đồng thời sở hữu nền tảng vững chắc về HTML, CSS và JavaScript. Hiện tại, tôi tập trung phát triển giao diện người dùng với các công nghệ React, Next.js và Tailwind CSS, hướng đến việc tạo ra những sản phẩm nhanh chóng, mượt mà, dễ tiếp cận, thân thiện với người dùng, đồng thời tối ưu hiệu suất và đảm bảo tính thẩm mỹ. Trong tương lai, mục tiêu của tôi là trở thành một Fullstack Developer, có khả năng xây dựng và phát triển sản phẩm toàn diện từ frontend đến backend."
+  },
+  "Skill": {
+    "subtitle": "Các kỹ năng, công cụ và công nghệ mà tôi thực sự giỏi"
   }
 }

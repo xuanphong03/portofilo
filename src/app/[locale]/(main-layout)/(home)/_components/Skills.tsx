@@ -1,6 +1,7 @@
 import ContentTransition from '@/src/app/[locale]/(main-layout)/_components/ContentAnimation'
 import Subtitle from '@/src/app/[locale]/(main-layout)/_components/Subtitle'
 import Title from '@/src/app/[locale]/(main-layout)/_components/Title'
+import {useTranslations} from 'next-intl'
 import Image from 'next/image'
 import React from 'react'
 import {v4 as uuidv4} from 'uuid'
@@ -25,6 +26,8 @@ const SKILLS = [
 ]
 
 export default function Skills() {
+  const t = useTranslations('Skill')
+
   return (
     <section
       id='skills'
@@ -35,9 +38,9 @@ export default function Skills() {
         width={2000}
         height={1000}
         src='/background/vision-moon-surface.png'
-        className='pointer-none absolute top-[-57.5rem] left-0 h-[79.11313rem] w-full object-cover max-sm:top-[-20rem] max-sm:h-[30rem]'
+        className='pointer-none absolute top-[-57.5rem] left-0 z-0 h-[79.11313rem] w-full object-cover max-sm:top-[-20rem] max-sm:h-[30rem]'
       />
-      <div className='mx-auto flex w-[80rem] flex-col items-center gap-16 max-sm:w-full max-sm:px-[1rem]'>
+      <div className='relative z-1 mx-auto flex w-[80rem] flex-col items-center gap-16 max-sm:w-full max-sm:px-[1rem]'>
         <div className='flex flex-col items-center gap-6 max-sm:gap-[0.625rem]'>
           <ContentTransition
             distance={50}
@@ -66,7 +69,7 @@ export default function Skills() {
             delay={0}
           >
             <Subtitle
-              text='The skills, tools and technologies I am really good at'
+              text={t('subtitle')}
               className='w-[50rem] max-sm:w-full'
             />
           </ContentTransition>

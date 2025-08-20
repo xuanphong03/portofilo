@@ -11,6 +11,7 @@ import {useGSAP} from '@gsap/react'
 import {TextPlugin} from 'gsap/TextPlugin'
 import Image from 'next/image'
 import ContentTransition from '@/src/app/[locale]/(main-layout)/_components/ContentAnimation'
+import {useTranslations} from 'next-intl'
 
 gsap.registerPlugin(TextPlugin)
 
@@ -24,6 +25,8 @@ const socials: SocialItemType[] = [
 ]
 
 export default function Introduce() {
+  const t = useTranslations('Intro')
+
   const containerRef = useRef<HTMLDivElement>(null)
   const cursorRef = useRef<HTMLSpanElement>(null)
   const animatedText = useRef<HTMLSpanElement>(null)
@@ -145,10 +148,7 @@ export default function Introduce() {
               delay={3.5}
             >
               <p className='text-[1rem] leading-[160%] font-normal text-white/80 max-sm:text-center max-sm:text-[0.875rem]'>
-                I'm a full stack developer (ReactJS & NodeJS) with a focus on creating exceptional digital experiences
-                that are fast, accessible, visually appealing, responsive and optimize performance application. Even
-                though I have been creating web applications for over 7 years, I still love it as if it was something
-                new.
+                {t('desc')}
               </p>
             </ContentTransition>
             <ContentTransition
@@ -164,12 +164,17 @@ export default function Introduce() {
               delay={3.6}
             >
               <div className='flex items-center gap-6 max-sm:flex-col max-sm:gap-4'>
-                <ButtonBorderGradient
-                  iconRight={<Download />}
-                  className='text-[1rem] font-medium max-sm:text-[0.875rem]'
+                <Link
+                  href={'#'}
+                  download={true}
                 >
-                  Download CV
-                </ButtonBorderGradient>
+                  <ButtonBorderGradient
+                    iconRight={<Download />}
+                    className='text-[1rem] font-medium max-sm:text-[0.875rem]'
+                  >
+                    Download CV
+                  </ButtonBorderGradient>
+                </Link>
                 <ul className='flex items-center gap-4'>
                   {socials?.map(({icon, href}) => (
                     <li key={uuidv4()}>

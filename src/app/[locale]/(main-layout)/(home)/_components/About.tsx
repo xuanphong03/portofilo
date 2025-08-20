@@ -12,6 +12,7 @@ import ContentTransition from '@/src/app/[locale]/(main-layout)/_components/Cont
 import {useGSAP} from '@gsap/react'
 import {gsap} from 'gsap'
 import SplitType from 'split-type'
+import {useTranslations} from 'next-intl'
 
 const achievements: AchievementItemType[] = [
   {
@@ -33,6 +34,7 @@ const achievements: AchievementItemType[] = [
 ]
 
 export default function About() {
+  const t = useTranslations('About')
   const containerRef = useRef<HTMLDivElement>(null)
   const descriptionRef = useRef<HTMLParagraphElement>(null)
   const achievementsRef = useRef<HTMLDivElement>(null)
@@ -76,7 +78,7 @@ export default function About() {
     <section
       id='about'
       ref={containerRef}
-      className='font-lexend relative mb-[10rem] text-white max-sm:mt-[4.5rem]'
+      className='font-lexend relative z-2 mb-[10rem] text-white max-sm:mt-[4.5rem]'
     >
       <Image
         alt=''
@@ -100,7 +102,7 @@ export default function About() {
             threshold={0.1}
             delay={0}
           >
-            <Title text='About me' />
+            <Title text={t('title')} />
           </ContentTransition>
           <ContentTransition
             distance={50}
@@ -115,7 +117,7 @@ export default function About() {
             delay={0}
           >
             <Subtitle
-              text='Curious about me? Here you have it'
+              text={t('subtitle')}
               className='max-sm:mx-auto max-sm:flex max-sm:w-[14rem] max-sm:justify-center'
             />
           </ContentTransition>
@@ -125,11 +127,7 @@ export default function About() {
             ref={descriptionRef}
             className='mx-auto w-[50rem] text-center text-[1rem] leading-[160%] text-white/80 max-sm:w-full max-sm:text-[0.875rem]'
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis, hic maiores. Repellendus, obcaecati
-            itaque! Molestias eius debitis itaque temporibus, perferendis reiciendis incidunt inventore consequatur nam
-            mollitia, veritatis explicabo dolore rem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis,
-            hic maiores. Repellendus, obcaecati itaque! Molestias eius debitis itaque temporibus, perferendis reiciendis
-            incidunt inventore consequatur nam mollitia, veritatis explicabo dolore rem?
+            {t('desc')}
           </p>
         </div>
 
