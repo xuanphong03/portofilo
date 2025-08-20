@@ -4,8 +4,8 @@ import {ScrollTrigger} from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 import {useGSAP} from '@gsap/react'
 import 'lenis/dist/lenis.css'
-
-gsap.registerPlugin(ScrollTrigger)
+import {ScrollToPlugin} from 'gsap/all'
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 export default function LenisProvider({children}: {children: React.ReactNode}) {
   useGSAP(() => {

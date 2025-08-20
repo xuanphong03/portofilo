@@ -8,6 +8,10 @@ import NumberTransition from '@/src/app/[locale]/(main-layout)/_components/Numbe
 import Title from '@/src/app/[locale]/(main-layout)/_components/Title'
 import Subtitle from '@/src/app/[locale]/(main-layout)/_components/Subtitle'
 import Image from 'next/image'
+import ContentTransition from '@/src/app/[locale]/(main-layout)/_components/ContentAnimation'
+import {useGSAP} from '@gsap/react'
+import {gsap} from 'gsap'
+import SplitType from 'split-type'
 
 const achievements: AchievementItemType[] = [
   {
@@ -34,11 +38,45 @@ export default function About() {
   const achievementsRef = useRef<HTMLDivElement>(null)
   const isAchievementsInView = useInView(achievementsRef, {once: true})
 
+  useGSAP(
+    () => {
+      // Create split
+      new SplitType('[data-animate]', {
+        types: 'lines,words,chars',
+        tagName: 'span',
+      })
+
+      // Animate
+      gsap.fromTo(
+        '[data-animate] .line',
+        {
+          y: '100%',
+          opacity: 0,
+        },
+        {
+          y: '0%',
+          opacity: 1,
+          color: 'inherit',
+          duration: 0.75,
+          stagger: 0.1,
+          ease: 'power2.inOut',
+          scrollTrigger: {
+            trigger: '[data-animate]',
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+            once: true,
+          },
+        },
+      )
+    },
+    {dependencies: []},
+  )
+
   return (
     <section
       id='about'
       ref={containerRef}
-      className='relative text-white max-sm:mt-[4.5rem]'
+      className='font-lexend relative mb-[10rem] text-white max-sm:mt-[4.5rem]'
     >
       <Image
         alt=''
@@ -47,14 +85,43 @@ export default function About() {
         src='/images/space-station.png'
         className='absolute top-[-8.5rem] left-[5rem] z-0 h-[11.5rem] w-auto max-sm:top-[0.5rem] max-sm:left-[-1rem] max-sm:h-[3.375rem]'
       />
+
       <div className='mx-auto flex w-[70rem] flex-col items-center gap-16 max-sm:w-full max-sm:gap-8 max-sm:px-[1rem]'>
         <div className='flex flex-col gap-6 max-sm:gap-[0.625rem]'>
-          <Title text='About me' />
-          <Subtitle
-            text='What defines me as a Frontend Developer'
-            className='max-sm:mx-auto max-sm:w-[18.5rem]'
-          />
+          <ContentTransition
+            distance={50}
+            direction='vertical'
+            reverse={false}
+            duration={0.75}
+            ease='power2.inOut'
+            initialOpacity={0}
+            animateOpacity={true}
+            scale={1}
+            threshold={0.1}
+            delay={0}
+          >
+            <Title text='About me' />
+          </ContentTransition>
+          <ContentTransition
+            distance={50}
+            direction='vertical'
+            reverse={false}
+            duration={0.75}
+            ease='power2.inOut'
+            initialOpacity={0}
+            animateOpacity={true}
+            scale={1}
+            threshold={0.1}
+            delay={0}
+          >
+            <Subtitle
+              text='Curious about me? Here you have it'
+              className='max-sm:mx-auto max-sm:flex max-sm:w-[14rem] max-sm:justify-center'
+            />
+          </ContentTransition>
+
           <p
+            data-animate
             ref={descriptionRef}
             className='mx-auto w-[50rem] text-center text-[1rem] leading-[160%] text-white/80 max-sm:w-full max-sm:text-[0.875rem]'
           >
@@ -70,7 +137,7 @@ export default function About() {
           ref={achievementsRef}
           initial={{opacity: 0, y: 50}}
           animate={isAchievementsInView ? {opacity: 1, y: 0} : {opacity: 0, y: 200}}
-          transition={{duration: 0.8, ease: 'easeOut'}}
+          transition={{duration: 0.75, ease: 'easeInOut'}}
           className='grid grid-cols-4 gap-5 self-stretch'
         >
           {achievements.map(({title, description}) => (

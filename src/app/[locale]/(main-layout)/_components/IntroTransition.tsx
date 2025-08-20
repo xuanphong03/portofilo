@@ -53,14 +53,19 @@ export default function IntroTransition({children}: {children: React.ReactNode})
             delay: 1.2,
             duration: 0.75,
             onComplete: () => {
+              // Phần này
               gsap.to(overlayCenterEl, {
-                overflow: 'auto',
-                height: 'auto',
                 clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
                 delay: 0.1,
                 duration: isMobile ? 1 : 0.5,
+                onComplete: () => {
+                  gsap.set(overlayCenterEl, {
+                    height: 'auto',
+                    overflow: 'auto',
+                  })
+                  isTransitioning.current = true
+                },
               })
-              isTransitioning.current = true
             },
           })
         },

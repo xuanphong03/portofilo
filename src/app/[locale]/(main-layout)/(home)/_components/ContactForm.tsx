@@ -7,7 +7,6 @@ import {Form, FormField} from '@/src/components/ui/form'
 import RHFInput from '@/src/components/form-controls/RHFInputField'
 import {useTranslations} from 'next-intl'
 import {contactFormSchema, ContactFormValuesType} from '@/src/schemas/contact.schema'
-import {ContactFormKey} from '@/src/types/home.interface'
 import RHFTextarea from '@/src/components/form-controls/RHFTextareaField'
 import {
   ENV_EMAILJS_PUBLIC_KEY as PUBLIC_KEY,
@@ -15,11 +14,11 @@ import {
   ENV_EMAILJS_TEMPLATE_ID as TEMPLATE_ID,
 } from '@/src/ config-global.env'
 import emailjs from '@emailjs/browser'
-
-type ContactFormFn = (key: ContactFormKey | string) => string
+import {cn} from '@/src/lib/utils'
+import {toast} from 'sonner'
 
 export default function ContactForm() {
-  const t: ContactFormFn = useTranslations('ContactForm')
+  const t = useTranslations('ContactForm')
   const translationSchema = useMemo(() => contactFormSchema.build(t), [t])
   const [isPending, setTransition] = useTransition()
 
@@ -42,11 +41,12 @@ export default function ContactForm() {
         const res = await emailjs.send(SERVICE_ID, TEMPLATE_ID, formData, PUBLIC_KEY)
 
         if (res.status === 200) {
-          console.log('Sucêss')
+          toast.success(t('successSendMessage'))
           form.reset()
         }
       } catch (error) {
-        console.log('Error')
+        console.log('Error', error)
+        toast.error(t('errorSendMessage'))
       }
     })
   }
@@ -101,8 +101,19 @@ export default function ContactForm() {
             />
           )}
         />
-        <div className='col-span-full'>
-          <Button type='submit'>Submit</Button>
+        <div className='col-span-full flex justify-end'>
+          <Button
+            type='submit'
+            className={cn(
+              'relative cursor-pointer px-[2rem] font-medium transition-all duration-300 ease-in-out lg:hover:bg-[#23a26b]',
+              isPending && 'pointer-events-none cursor-not-allowed opacity-50',
+            )}
+          >
+            <span className={cn('block', isPending && 'opacity-0')}>{t('submitButtonText')}</span>
+            <span className={cn('absolute top-1/2 left-1/2 hidden -translate-1/2', isPending && 'block')}>
+              {t('submittingButtonText')}
+            </span>
+          </Button>
         </div>
       </form>
     </Form>

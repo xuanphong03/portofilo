@@ -20,6 +20,15 @@
     "fieldFullnamePlaceholder": "Tên của bạn*",
     "fieldEmailPlaceholder": "Email*",
     "fieldPhonePlaceholder": "Số điện thoại*",
-    "fieldMessagePlaceholder": "Tin nhắn*"
+    "fieldMessagePlaceholder": "Tin nhắn*",
+    "submitButtonText": "Gửi tin nhắn",
+    "submittingButtonText": "Đang gửi...",
+    "successSendMessage": "Tin nhắn đã được gửi thành công",
+    "errorSendMessage": "Đã có lỗi xảy ra, vui lòng thử lại"
+  },
+  "ContactInfo": {
+    "labelEmail": "Email",
+    "labelPhone": "Số điện thoại liên hệ",
+    "labelSocial": "Mạng xã hội"
   }
 }

@@ -20,6 +20,15 @@
     "fieldFullnamePlaceholder": "Fullname*",
     "fieldEmailPlaceholder": "Email*",
     "fieldPhonePlaceholder": "Phone number*",
-    "fieldMessagePlaceholder": "Message*"
+    "fieldMessagePlaceholder": "Message*",
+    "submitButtonText": "Submit message",
+    "submittingButtonText": "Submitting...",
+    "successSendMessage": "Message sent successfully",
+    "errorSendMessage": "An error occurred, please try again"
+  },
+  "ContactInfo": {
+    "labelEmail": "Email",
+    "labelPhone": "Phone number",
+    "labelSocial": "Socials"
   }
 }

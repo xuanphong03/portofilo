@@ -38,15 +38,15 @@ interface NavMobileProps {
 
 export default function NavMobile({navLinks}: NavMobileProps) {
   const [open, setOpen] = useState<boolean>(false)
-  const [activeSection, setActiveSection] = useState<string>('')
-
+  const [activeSection, setActiveSection] = useState<string>('#home')
+  console.log(activeSection)
   // Hàm scroll đến section
   const handleScrollTo = (id: string) => {
     const target = document.querySelector(id)
     if (target) {
       gsap.to(window, {
         duration: 1,
-        scrollTo: {y: target, offsetY: 80},
+        scrollTo: {y: target, offsetY: 100},
         ease: 'power1.inOut',
       })
     }
@@ -80,8 +80,8 @@ export default function NavMobile({navLinks}: NavMobileProps) {
         trigger: document.body,
         start: 'top top',
         end: 1,
-        onEnter: () => setActiveSection('#'),
-        onEnterBack: () => setActiveSection('#'),
+        onEnter: () => setActiveSection('#home'),
+        onEnterBack: () => setActiveSection('#home'),
       })
       triggers.push(topTrigger)
 

@@ -10,6 +10,7 @@ import gsap from 'gsap'
 import {useGSAP} from '@gsap/react'
 import {TextPlugin} from 'gsap/TextPlugin'
 import Image from 'next/image'
+import ContentTransition from '@/src/app/[locale]/(main-layout)/_components/ContentAnimation'
 
 gsap.registerPlugin(TextPlugin)
 
@@ -105,40 +106,80 @@ export default function Introduce() {
       <div className='relative z-1 container flex h-full flex-col items-center justify-center gap-20'>
         <div className='flex items-center justify-between self-stretch max-sm:flex-col max-sm:gap-10'>
           <div className='flex w-[35.375rem] flex-col gap-8 max-sm:w-full max-sm:gap-4'>
-            <h1 className='font-plus-jakarta-sans text-[3.5rem] leading-[120%] font-bold tracking-[-0.03125rem] max-sm:text-center max-sm:text-[1.75rem] max-sm:leading-[150%] max-sm:tracking-[-0.03125rem]'>
-              Hello I'm <br />
-              <div className='h-[4.25rem] max-sm:h-[2.625rem]'>
-                <span
-                  ref={animatedText}
-                  className='text-linear-primary'
-                ></span>
-                <span
-                  ref={cursorRef}
-                  className='inline-block h-[3rem] w-[0.25rem] translate-y-[0.25rem] bg-[linear-gradient(0deg,#d8f8e1_0%,#98efaf_100%)] max-sm:h-[1.75rem] max-sm:w-[0.125rem]'
-                ></span>
+            <ContentTransition
+              distance={200}
+              direction='horizontal'
+              reverse={true}
+              duration={1.2}
+              ease='power2.inOut'
+              initialOpacity={0}
+              animateOpacity={true}
+              scale={1}
+              threshold={0.1}
+              delay={3.5}
+            >
+              <h1 className='font-plus-jakarta-sans text-[3.5rem] leading-[120%] font-bold tracking-[-0.03125rem] max-sm:text-center max-sm:text-[1.75rem] max-sm:leading-[150%] max-sm:tracking-[-0.03125rem]'>
+                Hello I'm <br />
+                <div className='h-[4.25rem] max-sm:h-[2.625rem]'>
+                  <span
+                    ref={animatedText}
+                    className='text-linear-primary'
+                  ></span>
+                  <span
+                    ref={cursorRef}
+                    className='inline-block h-[3rem] w-[0.25rem] translate-y-[0.25rem] bg-[linear-gradient(0deg,#d8f8e1_0%,#98efaf_100%)] max-sm:h-[1.75rem] max-sm:w-[0.125rem]'
+                  ></span>
+                </div>
+              </h1>
+            </ContentTransition>
+            <ContentTransition
+              distance={200}
+              direction='horizontal'
+              reverse={true}
+              duration={1.2}
+              ease='power2.inOut'
+              initialOpacity={0}
+              animateOpacity={true}
+              scale={1}
+              threshold={0.1}
+              delay={3.6}
+            >
+              <p className='text-[1rem] leading-[160%] font-normal text-white/80 max-sm:text-center max-sm:text-[0.875rem]'>
+                I'm a full stack developer (ReactJS & NodeJS) with a focus on creating exceptional digital experiences
+                that are fast, accessible, visually appealing, responsive and optimize performance application. Even
+                though I have been creating web applications for over 7 years, I still love it as if it was something
+                new.
+              </p>
+            </ContentTransition>
+            <ContentTransition
+              distance={200}
+              direction='horizontal'
+              reverse={true}
+              duration={1.2}
+              ease='power2.inOut'
+              initialOpacity={0}
+              animateOpacity={true}
+              scale={1}
+              threshold={0.1}
+              delay={3.7}
+            >
+              <div className='flex items-center gap-6 max-sm:flex-col max-sm:gap-4'>
+                <ButtonBorderGradient iconRight={<Download />}>Download CV</ButtonBorderGradient>
+                <ul className='flex items-center gap-4'>
+                  {socials?.map(({icon, href}) => (
+                    <li key={uuidv4()}>
+                      <Link
+                        href={href}
+                        target='_blank'
+                        className='before:border-gradient-white relative flex size-[2.5rem] items-center justify-center rounded-full before:rounded-full before:bg-[linear-gradient(0deg,rgba(255,255,255,.25),rgba(255,255,255,1))] max-sm:size-[2rem] [&_svg]:relative [&_svg]:z-1 [&_svg]:size-[1.25rem] max-sm:[&_svg]:size-[1rem]'
+                      >
+                        {icon}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </h1>
-            <p className='text-[1rem] leading-[160%] font-normal text-white/80 max-sm:text-center max-sm:text-[0.875rem]'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti qui labore mollitia harum, porro minima
-              tenetur omnis delectus, doloribus sint incidunt. Quam in doloremque hic laborum ipsa vitae nemo
-              recusandae.
-            </p>
-            <div className='flex items-center gap-6 max-sm:flex-col max-sm:gap-4'>
-              <ButtonBorderGradient iconRight={<Download />}>Download CV</ButtonBorderGradient>
-              <ul className='flex items-center gap-4'>
-                {socials?.map(({icon, href}) => (
-                  <li key={uuidv4()}>
-                    <Link
-                      href={href}
-                      target='_blank'
-                      className='before:border-gradient-white relative flex size-[2.5rem] items-center justify-center rounded-full before:rounded-full before:bg-[linear-gradient(0deg,rgba(255,255,255,.25),rgba(255,255,255,1))] max-sm:size-[2rem] [&_svg]:relative [&_svg]:z-1 [&_svg]:size-[1.25rem] max-sm:[&_svg]:size-[1rem]'
-                    >
-                      {icon}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </ContentTransition>
           </div>
           <div
             ref={avatarRef}
