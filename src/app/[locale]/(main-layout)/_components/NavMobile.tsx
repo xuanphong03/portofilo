@@ -128,8 +128,10 @@ export default function NavMobile({navLinks}: NavMobileProps) {
                   href={'/'}
                   className='flex items-end gap-2 text-[3rem] font-bold tracking-[0.025rem] max-sm:gap-0 max-sm:text-[1.25rem]'
                 >
-                  <span className='text-linear-primary block'>Michael</span>
-                  <span className='text-white'>.</span>
+                  <div className='text-linear-primary flex items-start'>
+                    <span className='mt-[0.25rem] block text-[1.5rem] max-sm:text-[0.75rem]'>N</span>
+                    <span>Phong</span>
+                  </div>
                 </Link>
 
                 <DrawerClose
@@ -167,7 +169,7 @@ export default function NavMobile({navLinks}: NavMobileProps) {
               <div className='flex flex-col items-center gap-4'>
                 <ButtonBorderGradient
                   size='lg'
-                  className='w-full bg-[#23a26b] text-white before:hidden after:hidden'
+                  className='w-full bg-[#23a26b] font-medium text-white before:hidden after:hidden'
                   iconRight={<Download />}
                 >
                   Download CV

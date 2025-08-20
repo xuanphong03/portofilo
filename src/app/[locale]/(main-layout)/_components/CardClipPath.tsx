@@ -3,6 +3,7 @@ import Link from 'next/link'
 import {useRef, useEffect, useCallback} from 'react'
 import {gsap} from 'gsap'
 import Image from 'next/image'
+import {cn} from '@/src/lib/utils'
 
 // Tạo các cấu hình animation
 const animationConfig = {
@@ -17,8 +18,13 @@ const animationConfig = {
     ease: 'power2.inOut',
   },
 }
-
-const CardClipPath = () => {
+interface CardClipPathProps {
+  href: string
+  img_default: string
+  img_hover: string
+  className?: string
+}
+const CardClipPath = ({href, img_default, img_hover, className}: CardClipPathProps) => {
   const imageRef = useRef<HTMLImageElement>(null)
   const animationRef = useRef<gsap.core.Tween | null>(null)
 
@@ -62,30 +68,31 @@ const CardClipPath = () => {
 
   return (
     <Link
-      href={'#'}
-      className='relative'
+      href={href}
+      className={cn('relative', className)}
       onNavigate={handleMouseEnter}
+      target='_blank'
     >
       <div
         className='xsm:hidden absolute inset-0 z-10 size-full'
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       ></div>
-      <div className='xsm:w-full xsm:h-[10.6875rem] relative h-[21.75rem] w-[45.1875rem]'>
+      <div className='xsm:w-full relative h-[21.75rem] w-full max-sm:h-auto'>
         <Image
-          className='size-full object-cover'
-          src={'/clip-path/item-project.jpg'}
           alt=''
           width={723}
           height={348}
+          src={img_default}
+          className='size-full object-cover'
         />
         <Image
-          ref={imageRef}
-          className='absolute top-0 left-0 size-full object-cover'
-          src={'/clip-path/item-project-hover.jpg'}
           alt=''
+          ref={imageRef}
           width={723}
           height={348}
+          src={img_hover}
+          className='absolute top-0 left-0 size-full object-cover'
         />
       </div>
     </Link>

@@ -28,14 +28,14 @@ export default function Skills() {
   return (
     <section
       id='skills'
-      className='font-lexend relative my-[5rem] pt-[21.3725rem] max-sm:pt-[5rem]'
+      className='font-lexend relative z-1 my-[5rem] mt-[21.3725rem] max-sm:mt-[5rem]'
     >
       <Image
         alt=''
         width={2000}
         height={1000}
         src='/background/vision-moon-surface.png'
-        className='pointer-none absolute top-[-37.5rem] left-0 h-[79.11313rem] w-full object-cover max-sm:top-[-20rem] max-sm:h-[30rem]'
+        className='pointer-none absolute top-[-57.5rem] left-0 h-[79.11313rem] w-full object-cover max-sm:top-[-20rem] max-sm:h-[30rem]'
       />
       <div className='mx-auto flex w-[80rem] flex-col items-center gap-16 max-sm:w-full max-sm:px-[1rem]'>
         <div className='flex flex-col items-center gap-6 max-sm:gap-[0.625rem]'>

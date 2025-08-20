@@ -116,7 +116,7 @@ export default function Introduce() {
               animateOpacity={true}
               scale={1}
               threshold={0.1}
-              delay={3.5}
+              delay={3.4}
             >
               <h1 className='font-plus-jakarta-sans text-[3.5rem] leading-[120%] font-bold tracking-[-0.03125rem] max-sm:text-center max-sm:text-[1.75rem] max-sm:leading-[150%] max-sm:tracking-[-0.03125rem]'>
                 Hello I'm <br />
@@ -142,7 +142,7 @@ export default function Introduce() {
               animateOpacity={true}
               scale={1}
               threshold={0.1}
-              delay={3.6}
+              delay={3.5}
             >
               <p className='text-[1rem] leading-[160%] font-normal text-white/80 max-sm:text-center max-sm:text-[0.875rem]'>
                 I'm a full stack developer (ReactJS & NodeJS) with a focus on creating exceptional digital experiences
@@ -161,10 +161,15 @@ export default function Introduce() {
               animateOpacity={true}
               scale={1}
               threshold={0.1}
-              delay={3.7}
+              delay={3.6}
             >
               <div className='flex items-center gap-6 max-sm:flex-col max-sm:gap-4'>
-                <ButtonBorderGradient iconRight={<Download />}>Download CV</ButtonBorderGradient>
+                <ButtonBorderGradient
+                  iconRight={<Download />}
+                  className='text-[1rem] font-medium max-sm:text-[0.875rem]'
+                >
+                  Download CV
+                </ButtonBorderGradient>
                 <ul className='flex items-center gap-4'>
                   {socials?.map(({icon, href}) => (
                     <li key={uuidv4()}>
