@@ -78,7 +78,7 @@ export default function About() {
     <section
       id='about'
       ref={containerRef}
-      className='font-lexend relative z-2 mb-[10rem] text-white max-sm:mt-[4.5rem]'
+      className='font-lexend relative z-2 mt-[2.5rem] mb-[10rem] text-white max-sm:mt-[4.5rem]'
     >
       <Image
         alt=''
@@ -114,7 +114,7 @@ export default function About() {
             animateOpacity={true}
             scale={1}
             threshold={0.1}
-            delay={0}
+            delay={0.1}
           >
             <Subtitle
               text={t('subtitle')}
