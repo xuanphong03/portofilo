@@ -10,7 +10,7 @@ export default function Contact() {
   return (
     <section
       id='contact'
-      className='font-lexend my-[5rem] overflow-hidden text-white max-sm:py-[2.5rem]'
+      className='font-lexend mt-[5rem] overflow-hidden pb-[5rem] text-white max-sm:py-[2.5rem]'
     >
       <div className='container flex flex-col gap-16 max-sm:gap-8'>
         <div className='flex flex-col items-center gap-6 max-sm:gap-[0.625rem]'>

@@ -1,7 +1,8 @@
 'use client'
-import React, {useRef, useEffect, ReactNode} from 'react'
+import React, {useRef, ReactNode} from 'react'
 import {gsap} from 'gsap'
 import {ScrollTrigger} from 'gsap/ScrollTrigger'
+import {useGSAP} from '@gsap/react'
 
 interface ContentTransition {
   children: ReactNode
@@ -34,53 +35,61 @@ const ContentTransition: React.FC<ContentTransition> = ({
 }) => {
   const ref = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
+  useGSAP(
+    () => {
+      const isMobile = window.innerWidth < 640
+      if (isMobile) return
+      const el = ref.current
+      if (!el) return
 
-    const axis = direction === 'horizontal' ? 'x' : 'y'
-    const offset = reverse ? -distance : distance
-    const startPct = (1 - threshold) * 100
+      const axis = direction === 'horizontal' ? 'x' : 'y'
+      const offset = reverse ? -distance : distance
+      const startPct = (1 - threshold) * 100
 
-    gsap.set(el, {
-      [axis]: offset,
-      scale,
-      opacity: animateOpacity ? initialOpacity : 1,
-    })
+      gsap.set(el, {
+        [axis]: offset,
+        scale,
+        opacity: animateOpacity ? initialOpacity : 1,
+      })
 
-    gsap.to(el, {
-      [axis]: 0,
-      scale: 1,
-      opacity: 1,
-      duration,
-      ease,
-      delay,
-      onComplete,
-      scrollTrigger: {
-        trigger: el,
-        start: `top ${startPct}%`,
-        toggleActions: 'play none none none',
-        once: true,
-      },
-    })
+      gsap.to(el, {
+        [axis]: 0,
+        scale: 1,
+        opacity: 1,
+        duration,
+        ease,
+        delay,
+        onComplete,
+        scrollTrigger: {
+          trigger: el,
+          start: `top ${startPct}%`,
+          toggleActions: 'play none none none',
+          once: true,
+        },
+      })
 
-    return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill())
-      gsap.killTweensOf(el)
-    }
-  }, [
-    distance,
-    direction,
-    reverse,
-    duration,
-    ease,
-    initialOpacity,
-    animateOpacity,
-    scale,
-    threshold,
-    delay,
-    onComplete,
-  ])
+      return () => {
+        ScrollTrigger.getAll().forEach((t) => t.kill())
+        gsap.killTweensOf(el)
+      }
+    },
+    {
+      dependencies: [
+        distance,
+        direction,
+        reverse,
+        duration,
+        ease,
+        initialOpacity,
+        animateOpacity,
+        scale,
+        threshold,
+        delay,
+        onComplete,
+      ],
+      scope: ref,
+    },
+  )
 
   return <div ref={ref}>{children}</div>
 }

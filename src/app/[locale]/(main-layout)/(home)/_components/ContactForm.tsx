@@ -105,7 +105,7 @@ export default function ContactForm() {
           <Button
             type='submit'
             className={cn(
-              'relative cursor-pointer px-[2rem] font-medium transition-all duration-300 ease-in-out lg:hover:bg-[#23a26b]',
+              'relative cursor-pointer px-[2rem] font-medium transition-all duration-300 ease-in-out max-sm:w-full lg:hover:bg-[#23a26b]',
               isPending && 'pointer-events-none cursor-not-allowed opacity-50',
             )}
           >
