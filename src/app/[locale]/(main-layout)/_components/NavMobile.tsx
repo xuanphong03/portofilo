@@ -26,12 +26,11 @@ import {ScrollToPlugin} from 'gsap/ScrollToPlugin'
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
 const socials: SocialItemType[] = [
-  {icon: <Github />, href: ''},
-  {icon: <Linkedin />, href: ''},
-  {icon: <Facebook />, href: ''},
-  {icon: <Twitter />, href: ''},
+  {name: 'Github', icon: <Github />, href: 'https://github.com/xuanphong03'},
+  {name: 'Linkedin', icon: <Linkedin />, href: 'https://www.linkedin.com/in/phong-nguyen-xuan-b0566134b/'},
+  {name: 'Facebook', icon: <Facebook />, href: 'https://www.facebook.com/nguyen.x.phong.583'},
+  {name: 'Twitter', icon: <Twitter />, href: 'https://x.com/PhongNguyn22693'},
 ]
-
 interface NavMobileProps {
   navLinks: NavigationLinkType[]
 }
@@ -175,12 +174,13 @@ export default function NavMobile({navLinks}: NavMobileProps) {
                   Download CV
                 </ButtonBorderGradient>
                 <ul className='flex items-center gap-4'>
-                  {socials?.map(({icon, href}) => (
+                  {socials?.map(({name, icon, href}) => (
                     <li key={uuidv4()}>
                       <Link
                         href={href}
                         target='_blank'
                         className='before:border-gradient-white relative flex size-[2.5rem] items-center justify-center rounded-full before:rounded-full before:bg-[linear-gradient(0deg,rgba(255,255,255,.25),rgba(255,255,255,1))] max-sm:size-[2rem] [&_svg]:relative [&_svg]:z-1 [&_svg]:size-[1.25rem] max-sm:[&_svg]:size-[1rem]'
+                        aria-label={name}
                       >
                         {icon}
                       </Link>

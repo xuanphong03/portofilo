@@ -85,6 +85,7 @@ export default function IntroTransition({children}: {children: React.ReactNode})
         <div className='relative z-10'>
           <div
             ref={headingRef}
+            aria-label='Introduce Text'
             className='overflow-hidden text-[8rem] leading-none font-semibold tracking-[-0.025rem] text-[#f4efe7] max-sm:text-[2rem]'
           >
             NGUYEN XUAN PHONG

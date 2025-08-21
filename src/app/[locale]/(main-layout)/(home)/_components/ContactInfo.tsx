@@ -7,10 +7,10 @@ import Link from 'next/link'
 import {useTranslations} from 'next-intl'
 
 const socials: SocialItemType[] = [
-  {icon: <Github />, href: 'https://github.com/xuanphong03'},
-  {icon: <Linkedin />, href: 'https://www.linkedin.com/in/phong-nguyen-xuan-b0566134b/'},
-  {icon: <Facebook />, href: 'https://www.facebook.com/nguyen.x.phong.583'},
-  {icon: <Twitter />, href: 'https://x.com/PhongNguyn22693'},
+  {name: 'Github', icon: <Github />, href: 'https://github.com/xuanphong03'},
+  {name: 'Linkedin', icon: <Linkedin />, href: 'https://www.linkedin.com/in/phong-nguyen-xuan-b0566134b/'},
+  {name: 'Facebook', icon: <Facebook />, href: 'https://www.facebook.com/nguyen.x.phong.583'},
+  {name: 'Twitter', icon: <Twitter />, href: 'https://x.com/PhongNguyn22693'},
 ]
 export default function ContactInfo() {
   const t = useTranslations('ContactInfo')
@@ -38,11 +38,12 @@ export default function ContactInfo() {
           {t('labelSocial')}
         </h3>
         <ul className='flex items-center gap-2'>
-          {socials?.map(({icon, href}) => (
+          {socials?.map(({name, icon, href}) => (
             <li key={uuidv4()}>
               <Link
                 href={href}
                 target='_blank'
+                aria-label={name}
                 className='before:border-gradient-white relative flex size-[2.5rem] items-center justify-center rounded-full before:rounded-full before:bg-[linear-gradient(0deg,rgba(255,255,255,.25),rgba(255,255,255,1))] max-sm:size-[2rem] [&_svg]:relative [&_svg]:z-1 [&_svg]:size-[1.25rem] max-sm:[&_svg]:size-[1rem]'
               >
                 {icon}

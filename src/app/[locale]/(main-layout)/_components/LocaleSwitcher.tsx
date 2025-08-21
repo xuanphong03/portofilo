@@ -29,7 +29,10 @@ export default function LocaleSwitcher() {
         disabled={isPending}
         onValueChange={handleChangeLocale}
       >
-        <SelectTrigger className='w-[10rem] cursor-pointer'>
+        <SelectTrigger
+          aria-label='Language switcher'
+          className='w-[10rem] cursor-pointer'
+        >
           <SelectValue placeholder='Language' />
         </SelectTrigger>
         <SelectContent>
